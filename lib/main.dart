@@ -43,7 +43,7 @@ class _MainPageState extends State<MainPage> {
               );
             },
             child: Container(
-              child: Text("TutorialOne"),
+              child: Text("Tutorial One"),
             ),
           ),
           FlatButton(
@@ -54,7 +54,7 @@ class _MainPageState extends State<MainPage> {
               );
             },
             child: Container(
-              child: Text("TutorialOne"),
+              child: Text("Tutorial Two"),
             ),
           ),
         ],
@@ -67,7 +67,9 @@ class Tutorial1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Tutorial One"),
+      ),
       body: CenterColumn(
         children: <Widget>[
           Text("I am Tutorial 1."),
@@ -111,6 +113,9 @@ class Tutorial2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: AppBar(
+        title: Text("Tutorial Two"),
+      ),
       body: new Column(
         children: <Widget>[
           new Expanded(
