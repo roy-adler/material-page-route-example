@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:page_route_example/page_one.dart';
-import 'package:page_route_example/page_two.dart';
+import 'package:page_route_example/tutorial_1.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,14 +27,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,33 +35,36 @@ class _MainPageState extends State<MainPage> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        //crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Center(
-            child: FlatButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => PageOne()),
-                );
-              },
-              child: Icon(Icons.plus_one),
+          MaterialButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Tutorial1()),
+              );
+            },
+            child: Container(
+              child: Text("TutorialOne"),
+            ),
+          ),
+          MaterialButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Tutorial1()),
+              );
+            },
+            child: Container(
+              child: Text("TutorialOne"),
             ),
           ),
           Container(
             height: 12,
-          ),
-          FlatButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => PageTwo()),
-              );
-            },
-            child: Icon(Icons.looks_two),
           ),
         ],
       ),
     );
   }
 }
+
