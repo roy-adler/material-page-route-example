@@ -1,43 +1,50 @@
 import 'package:flutter/material.dart';
 
 class Tutorial2 extends StatelessWidget {
-  Navigator _getNavigator(BuildContext context) {
-    return new Navigator(
-      onGenerateRoute: (RouteSettings settings) {
-        return new MaterialPageRoute(builder: (context) {
-          return new Center(
-            child: new Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                new Text(settings.name),
-                new FlatButton(
-                  onPressed: () =>
-                      Navigator.pushNamed(context, "${settings.name}/next"),
-                  child: new Text('Next'),
-                ),
-                new FlatButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: new Text('Back'),
-                ),
-              ],
+  _getNavigator(String s) {
+    return Navigator(
+      onGenerateRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (context) => Scaffold(
+            appBar: AppBar(
+              title: Text("NavigatorOne"),
             ),
-          );
-        });
+            body: FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Scaffold(
+                            appBar: AppBar(
+                              title: Text(s),
+                            ),
+                          )),
+                );
+              },
+              child: Container(
+                child: Text(s),
+              ),
+            ),
+          ),
+        );
       },
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Column(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Tutorial 2"),
+      ),
+      body: Column(
         children: <Widget>[
-          new Expanded(
-            child: _getNavigator(context),
+          Expanded(
+            child: _getNavigator("Test1"),
           ),
           Divider(),
-          new Expanded(
-            child: _getNavigator(context),
+          Expanded(
+            child: _getNavigator("Test2"),
           ),
         ],
       ),
